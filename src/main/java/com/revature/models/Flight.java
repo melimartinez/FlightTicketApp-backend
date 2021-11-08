@@ -28,19 +28,19 @@ public class Flight {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "departure_spaceport_id")
-    private int departureSpaceportId;
+    private Spaceport departureSpaceportId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "arrival_spaceport_id")
-    private int arrivalSpaceportId;
+    private Spaceport arrivalSpaceportId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "v_id")
-    private int vendorId;
+    private Vendor vendorId;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ss_id")
-    private int spaceshipId;
+    private Spaceship spaceshipId;
 
     public Flight() {
     }
