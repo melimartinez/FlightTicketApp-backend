@@ -45,7 +45,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(int id, long departureDateTime, long arrivalDateTime, float pricePerTicket, float vendorCost, int ticketsAvailable, int departureSpaceportId, int arrivalSpaceportId, int vendorId, int spaceshipId) {
+    public Flight(int id, long departureDateTime, long arrivalDateTime, float pricePerTicket, float vendorCost, int ticketsAvailable, Spaceport departureSpaceportId, Spaceport arrivalSpaceportId, Vendor vendorId, Spaceship spaceshipId) {
         this.id = id;
         this.departureDateTime = departureDateTime;
         this.arrivalDateTime = arrivalDateTime;
@@ -114,7 +114,7 @@ public class Flight {
         this.departureSpaceportId = departureSpaceportId;
     }
 
-    public int getArrivalSpaceportID() {
+    public Spaceport getArrivalSpaceportID() {
         return arrivalSpaceportId;
     }
 
@@ -122,7 +122,7 @@ public class Flight {
         this.arrivalSpaceportId = arrivalSpaceportId;
     }
 
-    public int getVendorId() {
+    public Vendor getVendorId() {
         return vendorId;
     }
 
@@ -130,11 +130,11 @@ public class Flight {
         this.vendorId = vendorId;
     }
 
-    public int getSpaceshipId() {
+    public Spaceship getSpaceshipId() {
         return spaceshipId;
     }
 
-    public void setSpaceshipId(int spaceshipID) {
+    public Spaceship setSpaceshipId(int spaceshipID) {
         this.spaceshipId = spaceshipId;
     }
 
