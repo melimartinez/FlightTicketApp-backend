@@ -25,7 +25,7 @@ public class Ticket {
 	private int passportNo;
 	
 	@Column(name = "expiry_date")
-	private Date expiryDate;
+	private String expiryDate;
 	
 	@Column(name = "checked_bag")
 	private int checkedBag;
@@ -49,7 +49,7 @@ public class Ticket {
 	}
 	
 
-	public Ticket(int ticketId, int passportNo, Date expiryDate, int checkedBag, int carryOnBag, String meal,
+	public Ticket(int ticketId, int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal,
 			String cabinClass, Flight flight) {
 		super();
 		this.ticketId = ticketId;
@@ -62,7 +62,7 @@ public class Ticket {
 		this.flight = flight;
 	}
 	
-	public Ticket(int passportNo, Date expiryDate, int checkedBag, int carryOnBag, String meal,
+	public Ticket(int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal,
 			String cabinClass, Flight flight) {
 		super();
 		this.passportNo = passportNo;
@@ -75,7 +75,7 @@ public class Ticket {
 	}
 
 
-	public Ticket(int passportNo, Date expiryDate, int checkedBag, int carryOnBag, String meal, String cabinClass) {
+	public Ticket(int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal, String cabinClass) {
 		super();
 		this.passportNo = passportNo;
 		this.expiryDate = expiryDate;
@@ -101,11 +101,11 @@ public class Ticket {
 		this.passportNo = passportNo;
 	}
 
-	public Date getExpiryDate() {
+	public String getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 
