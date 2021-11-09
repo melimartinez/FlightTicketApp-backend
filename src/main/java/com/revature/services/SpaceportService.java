@@ -13,11 +13,4 @@ public interface SpaceportService {
     public  Spaceport updateSpaceport(Spaceport change);
     public boolean deleteSpaceport(int id);
 
-
-
-//    public Flight getFlight(int id);
-//    public List<Flight> getAllFlights();
-//    public Flight addFlight(Flight f);
-//    public Flight updateFlight(Flight change);
-//    public boolean deleteFlight(int id);
 }
