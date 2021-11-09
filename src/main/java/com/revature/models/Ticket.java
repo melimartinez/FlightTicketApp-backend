@@ -27,10 +27,10 @@ public class Ticket {
 	@Column(name = "expiry_date")
 	private Date expiryDate;
 	
-	@Column(name = "checkedBag")
+	@Column(name = "checked_bag")
 	private int checkedBag;
 	
-	@Column(name = "carryOnBag")
+	@Column(name = "carry_on_bag")
 	private int carryOnBag;
 	
 	@Column(name = "meal")
