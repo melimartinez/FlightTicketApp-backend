@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 public class FlightServiceImpl implements FlightService{
@@ -15,7 +14,7 @@ public class FlightServiceImpl implements FlightService{
     //If one exists.
     //If more than one exists, need a @Qualifier
     @Autowired //Field Injection
-    FlightRepo fr;
+            FlightRepo fr;
 
     //Crud Services
     @Override

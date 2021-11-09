@@ -4,8 +4,6 @@ import com.revature.models.Flight;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository // basic crud operations taken care of by this annotation
 public interface FlightRepo extends CrudRepository<Flight, Integer> {
 
