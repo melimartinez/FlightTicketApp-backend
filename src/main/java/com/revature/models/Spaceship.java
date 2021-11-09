@@ -12,6 +12,6 @@ import javax.persistence.*;
 @Table(name="spaceship")
 public class Spaceship {
 
-    private int
+    private int hehee;
 
 }
