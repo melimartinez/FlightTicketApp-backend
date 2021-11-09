@@ -16,7 +16,7 @@ public class FlightController {
 
     //Crud Controllers
 
-    @GetMapping("flight/{id}")
+    @GetMapping("/flight/{id}")
     public Flight getFlight(@PathVariable("id") String id) {
         return fs.getFlight(Integer.parseInt(id));
     }
@@ -31,13 +31,13 @@ public class FlightController {
         return fs.addFlight(f);
     }
 
-    @PutMapping(value = "flight/{id}", consumes = "application/json", produces = "application/json")
+    @PutMapping(value = "/flight/{id}", consumes = "application/json", produces = "application/json")
     public Flight updateFlight(@PathVariable("id") String id, @RequestBody Flight change) {
         change.setId(Integer.parseInt(id));
         return fs.updateFlight(change);
     }
 
-    @DeleteMapping("flight/{id}")
+    @DeleteMapping("/flight/{id}")
     public boolean deleteFlight(@PathVariable("id") int id) {
         return fs.deleteFlight(id);
     }
