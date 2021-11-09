@@ -22,7 +22,7 @@ public class Vendor {
 
     private String email;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", columnDefinition="numeric(10,0")
     private double phoneNumber;
 
     private String slogan;
