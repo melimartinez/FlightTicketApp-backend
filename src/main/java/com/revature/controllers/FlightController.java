@@ -16,7 +16,7 @@ public class FlightController {
 
     //Crud Controllers
 
-    @GetMapping("flight'{id}")
+    @GetMapping("flight/{id}")
     public Flight getFlight(@PathVariable("id") String id) {
         return fs.getFlight(Integer.parseInt(id));
     }
