@@ -28,34 +28,34 @@ public class Flight {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "departure_spaceport_id")
-    private Spaceport departureSpaceportId;
+    private Spaceport departureSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "arrival_spaceport_id")
-    private Spaceport arrivalSpaceportId;
+    private Spaceport arrivalSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "v_id")
-    private Vendor vendorId;
+    private Vendor vendor;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ss_id")
-    private Spaceship spaceshipId;
+    private Spaceship spaceship;
 
     public Flight() {
     }
 
-    public Flight(int id, long departureDateTime, long arrivalDateTime, float pricePerTicket, float vendorCost, int ticketsAvailable, Spaceport departureSpaceportId, Spaceport arrivalSpaceportId, Vendor vendorId, Spaceship spaceshipId) {
+    public Flight(int id, long departureDateTime, long arrivalDateTime, float pricePerTicket, float vendorCost, int ticketsAvailable, Spaceport departureSpaceport, Spaceport arrivalSpaceport, Vendor vendor, Spaceship spaceship) {
         this.id = id;
         this.departureDateTime = departureDateTime;
         this.arrivalDateTime = arrivalDateTime;
         this.pricePerTicket = pricePerTicket;
         this.vendorCost = vendorCost;
         this.ticketsAvailable = ticketsAvailable;
-        this.departureSpaceportId = departureSpaceportId;
-        this.arrivalSpaceportId = arrivalSpaceportId;
-        this.vendorId = vendorId;
-        this.spaceshipId = spaceshipId;
+        this.departureSpaceport = departureSpaceport;
+        this.arrivalSpaceport = arrivalSpaceport;
+        this.vendor = vendor;
+        this.spaceship = spaceship;
     }
 
     public int getId() {
@@ -106,36 +106,36 @@ public class Flight {
         this.ticketsAvailable = ticketsAvailable;
     }
 
-    public int getDepartureSpaceportID() {
-        return departureSpaceportId;
+    public Spaceport getDepartureSpaceport() {
+        return departureSpaceport;
     }
 
-    public void setDepartureSpaceportID(int departureSpaceportID) {
-        this.departureSpaceportId = departureSpaceportId;
+    public void setDepartureSpaceport(Spaceport departureSpaceport) {
+        this.departureSpaceport = departureSpaceport;
     }
 
-    public Spaceport getArrivalSpaceportID() {
-        return arrivalSpaceportId;
+    public Spaceport getArrivalSpaceport() {
+        return arrivalSpaceport;
     }
 
-    public void setArrivalSpaceportId(int arrivalSpaceportId) {
-        this.arrivalSpaceportId = arrivalSpaceportId;
+    public void setArrivalSpaceport(Spaceport arrivalSpaceport) {
+        this.arrivalSpaceport = arrivalSpaceport;
     }
 
-    public Vendor getVendorId() {
-        return vendorId;
+    public Vendor getVendor() {
+        return vendor;
     }
 
-    public void setVendorId(int vendorId) {
-        this.vendorId = vendorId;
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
     }
 
-    public Spaceship getSpaceshipId() {
-        return spaceshipId;
+    public Spaceship getSpaceship() {
+        return spaceship;
     }
 
-    public Spaceship setSpaceshipId(int spaceshipID) {
-        this.spaceshipId = spaceshipId;
+    public void setSpaceship(Spaceship spaceship) {
+        this.spaceship = spaceship;
     }
 
     @Override
@@ -147,10 +147,10 @@ public class Flight {
                 ", pricePerTicket=" + pricePerTicket +
                 ", vendorCost=" + vendorCost +
                 ", ticketsAvailable=" + ticketsAvailable +
-                ", departureSpaceportId=" + departureSpaceportId +
-                ", arrivalSpaceportId=" + arrivalSpaceportId +
-                ", vendorId=" + vendorId +
-                ", spaceshipId=" + spaceshipId +
+                ", departureSpaceportId=" + departureSpaceport +
+                ", arrivalSpaceportId=" + arrivalSpaceport +
+                ", vendorId=" + vendor +
+                ", spaceshipId=" + spaceship +
                 '}';
     }
 }
