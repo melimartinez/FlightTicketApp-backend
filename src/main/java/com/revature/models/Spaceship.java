@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Data
@@ -11,6 +12,6 @@ import javax.persistence.*;
 @Table(name="spaceship")
 public class Spaceship {
 
-    private int hehee;
+    private int
 
 }
