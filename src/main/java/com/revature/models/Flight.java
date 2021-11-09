@@ -17,11 +17,11 @@ public class Flight {
     @Column(name = "arrival_date_time")
     private long arrivalDateTime;
 
-    @Column(name = "price_per_ticket")
-    private float pricePerTicket;
+    @Column(name = "price_per_ticket", columnDefinition = "numeric(8,2)")
+    private double pricePerTicket;
 
-    @Column(name = "v_cost")
-    private float vendorCost;
+    @Column(name = "v_cost", columnDefinition = "numericDefinition(8,2)")
+    private double vendorCost;
 
     @Column(name = "tickets_available")
     private int ticketsAvailable;
@@ -45,7 +45,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(int id, long departureDateTime, long arrivalDateTime, float pricePerTicket, float vendorCost, int ticketsAvailable, Spaceport departureSpaceport, Spaceport arrivalSpaceport, Vendor vendor, Spaceship spaceship) {
+    public Flight(int id, long departureDateTime, long arrivalDateTime, double pricePerTicket, double vendorCost, int ticketsAvailable, Spaceport departureSpaceport, Spaceport arrivalSpaceport, Vendor vendor, Spaceship spaceship) {
         this.id = id;
         this.departureDateTime = departureDateTime;
         this.arrivalDateTime = arrivalDateTime;
@@ -82,19 +82,19 @@ public class Flight {
         this.arrivalDateTime = arrivalDateTime;
     }
 
-    public float getPricePerTicket() {
+    public double getPricePerTicket() {
         return pricePerTicket;
     }
 
-    public void setPricePerTicket(float pricePerTicket) {
+    public void setPricePerTicket(double pricePerTicket) {
         this.pricePerTicket = pricePerTicket;
     }
 
-    public float getVendorCost() {
+    public double getVendorCost() {
         return vendorCost;
     }
 
-    public void setVendorCost(float vendorCost) {
+    public void setVendorCost(double vendorCost) {
         this.vendorCost = vendorCost;
     }
 
