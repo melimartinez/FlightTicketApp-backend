@@ -20,7 +20,7 @@ public class Flight {
     @Column(name = "price_per_ticket", columnDefinition = "numeric(8,2)")
     private double pricePerTicket;
 
-    @Column(name = "v_cost", columnDefinition = "numericDefinition(8,2)")
+    @Column(name = "v_cost", columnDefinition = "numeric(8,2)")
     private double vendorCost;
 
     @Column(name = "tickets_available")
