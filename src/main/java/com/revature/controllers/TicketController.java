@@ -43,8 +43,8 @@ public class TicketController {
 	    }
 
 	    @DeleteMapping("tickets/{id}")
-	    public boolean deleteActor(@PathVariable("id") int id) {
-	        System.out.println("Deleting Actor");
+	    public boolean deleteTicket(@PathVariable("id") int id) {
+	        System.out.println("Deleting Ticket");
 	        return ts.deleteTicket(id);
 	    }
 
