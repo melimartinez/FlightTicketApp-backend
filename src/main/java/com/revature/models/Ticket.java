@@ -9,7 +9,7 @@ public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "t_id")
+	@Column(name = "t_id", updatable = false)
 	private int ticketId;
 
 	@Column(name = "c_id", columnDefinition = "int")
