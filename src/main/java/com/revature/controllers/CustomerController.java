@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class CustomerController {
 
@@ -22,7 +22,7 @@ public class CustomerController {
         return cs.getCustomer(Integer.parseInt(id));
     }
 
-    @GetMapping("/customer")
+    @GetMapping("/customers")
     public List<Customer> getAllCustomers() {return cs.getAllCustomers();}
 
     @PutMapping(value = "/customer/{id}", consumes = "application/json", produces = "application/json")
