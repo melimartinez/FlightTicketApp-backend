@@ -47,12 +47,12 @@ public class Customer {
     private int zipcode;
 
     @Column(name = "phone_number", columnDefinition = "numeric(10,0)")
-    private int phoneNumber;
+    private double phoneNumber;
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String dob, String email, String cUsername, String cPassword, String addressLine1, String addressLine2, String city, String state, int zipcode, int phoneNumber) {
+    public Customer(String firstName, String lastName, String dob, String email, String cUsername, String cPassword, String addressLine1, String addressLine2, String city, String state, int zipcode, double phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
@@ -67,7 +67,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Customer(int c_id, String firstName, String lastName, String dob, String email, String cUsername, String cPassword, String addressLine1, String addressLine2, String city, String state, int zipcode, int phoneNumber) {
+    public Customer(int c_id, String firstName, String lastName, String dob, String email, String cUsername, String cPassword, String addressLine1, String addressLine2, String city, String state, int zipcode, double phoneNumber) {
         this.c_id = c_id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -179,11 +179,11 @@ public class Customer {
         this.zipcode = zipcode;
     }
 
-    public int getPhoneNumber() {
+    public double getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(double phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
