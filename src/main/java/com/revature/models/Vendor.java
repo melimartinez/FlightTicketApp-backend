@@ -23,14 +23,14 @@ public class Vendor {
     private String email;
 
     @Column(name = "phone_number", columnDefinition="numeric(10,0")
-    private double phoneNumber;
+    private int phoneNumber;
 
     private String slogan;
 
     public Vendor() {
     }
 
-    public Vendor(int vendor_id, String companyName, String vendorUsername, String vendorPassword, String email, double phoneNumber, String slogan) {
+    public Vendor(int vendor_id, String companyName, String vendorUsername, String vendorPassword, String email, int phoneNumber, String slogan) {
         this.vendor_id = vendor_id;
         this.companyName = companyName;
         this.vendorUsername = vendorUsername;
@@ -80,11 +80,11 @@ public class Vendor {
         this.email = email;
     }
 
-    public double getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

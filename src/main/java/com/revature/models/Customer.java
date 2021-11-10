@@ -31,7 +31,7 @@ public class Customer {
     @Column(name = "c_password")
     private String cPassword;
 
-    @Column(name = "address_line_2")
+    @Column(name = "address_line_1")
     private String addressLine1;
 
     @Column(name = "address_line_2")
@@ -43,10 +43,10 @@ public class Customer {
     @Column(name = "state")
     private String state;
 
-    @Column(name = "zipcode", columnDefinition = "numeric(8,2)")
+    @Column(name = "zipcode", columnDefinition = "int")
     private int zipcode;
 
-    @Column(name = "phone_number", columnDefinition = "numeric(8,2)")
+    @Column(name = "phone_number", columnDefinition = "numeric(10,0)")
     private int phoneNumber;
 
     public Customer() {

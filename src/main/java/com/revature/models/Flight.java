@@ -27,11 +27,11 @@ public class Flight {
     private int ticketsAvailable;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "departure_spaceport_id")
+    @JoinColumn(name = "departure_spaceport")
     private Spaceport departureSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "arrival_spaceport_id")
+    @JoinColumn(name = "arrival_spaceport")
     private Spaceport arrivalSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)

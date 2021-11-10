@@ -1,16 +1,7 @@
 package com.revature.models;
 
-import java.util.Date;
+import javax.persistence.*;
 import java.util.Objects;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name="ticket")
@@ -20,8 +11,11 @@ public class Ticket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "t_id")
 	private int ticketId;
+
+	@Column(name = "c_id", columnDefinition = "int")
+	private int cID;
 	
-	@Column(name = "passport_no")
+	@Column(name = "passport_no", columnDefinition = "numeric(9,0)")
 	private int passportNo;
 	
 	@Column(name = "expiry_date")
