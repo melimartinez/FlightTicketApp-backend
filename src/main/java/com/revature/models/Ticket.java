@@ -12,8 +12,9 @@ public class Ticket {
 	@Column(name = "t_id", updatable = false)
 	private int ticketId;
 
-	@Column(name = "c_id", columnDefinition = "int")
-	private int cID;
+	@ManyToOne
+	@JoinColumn(name = "c_id")
+	private Customer cID;
 	
 	@Column(name = "passport_no", columnDefinition = "numeric(9,0)")
 	private int passportNo;
@@ -41,10 +42,22 @@ public class Ticket {
 	public Ticket() {
 		super();
 	}
-	
+
+
+	public Ticket(int ticketId, Customer cID, int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal, String cabinClass, Flight flight) {
+		this.ticketId = ticketId;
+		this.cID = cID;
+		this.passportNo = passportNo;
+		this.expiryDate = expiryDate;
+		this.checkedBag = checkedBag;
+		this.carryOnBag = carryOnBag;
+		this.meal = meal;
+		this.cabinClass = cabinClass;
+		this.flight = flight;
+	}
 
 	public Ticket(int ticketId, int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal,
-			String cabinClass, Flight flight) {
+				  String cabinClass, Flight flight) {
 		super();
 		this.ticketId = ticketId;
 		this.passportNo = passportNo;
@@ -77,6 +90,14 @@ public class Ticket {
 		this.carryOnBag = carryOnBag;
 		this.meal = meal;
 		this.cabinClass = cabinClass;
+	}
+
+	public Customer getcID() {
+		return cID;
+	}
+
+	public void setcID(Customer cID) {
+		this.cID = cID;
 	}
 
 	public int getTicketId() {
@@ -143,33 +164,32 @@ public class Ticket {
 		this.flight = flight;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Ticket [ticketId=" + ticketId + ", passportNo=" + passportNo + ", expiryDate=" + expiryDate
-				+ ", checkedBag=" + checkedBag + ", carryOnBag=" + carryOnBag + ", meal=" + meal + ", cabinClass="
-				+ cabinClass + ", flight=" + flight + "]";
+		return "Ticket{" +
+				"ticketId=" + ticketId +
+				", cID=" + cID +
+				", passportNo=" + passportNo +
+				", expiryDate='" + expiryDate + '\'' +
+				", checkedBag=" + checkedBag +
+				", carryOnBag=" + carryOnBag +
+				", meal='" + meal + '\'' +
+				", cabinClass='" + cabinClass + '\'' +
+				", flight=" + flight +
+				'}';
 	}
 
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Ticket ticket = (Ticket) o;
+		return getTicketId() == ticket.getTicketId() && getPassportNo() == ticket.getPassportNo() && getCheckedBag() == ticket.getCheckedBag() && getCarryOnBag() == ticket.getCarryOnBag() && Objects.equals(getcID(), ticket.getcID()) && Objects.equals(getExpiryDate(), ticket.getExpiryDate()) && Objects.equals(getMeal(), ticket.getMeal()) && Objects.equals(getCabinClass(), ticket.getCabinClass()) && Objects.equals(getFlight(), ticket.getFlight());
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cabinClass, carryOnBag, checkedBag, expiryDate, meal, passportNo, ticketId);
+		return Objects.hash(getTicketId(), getcID(), getPassportNo(), getExpiryDate(), getCheckedBag(), getCarryOnBag(), getMeal(), getCabinClass(), getFlight());
 	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Ticket other = (Ticket) obj;
-		return Objects.equals(cabinClass, other.cabinClass) && carryOnBag == other.carryOnBag
-				&& checkedBag == other.checkedBag && Objects.equals(expiryDate, other.expiryDate)
-				&& Objects.equals(meal, other.meal) && passportNo == other.passportNo && ticketId == other.ticketId;
-	}
-	
 }

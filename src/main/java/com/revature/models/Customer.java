@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -49,6 +50,7 @@ public class Customer {
     @Column(name = "phone_number", columnDefinition = "numeric(10,0)")
     private double phoneNumber;
 
+
     public Customer() {
     }
 
@@ -82,6 +84,7 @@ public class Customer {
         this.zipcode = zipcode;
         this.phoneNumber = phoneNumber;
     }
+
 
     public int getC_id() {
         return c_id;
@@ -187,6 +190,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -204,16 +208,16 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "c_id=" + c_id +
-                ", firstName=" + firstName +
-                ", lastName=" + lastName +
-                ", dob=" + dob +
-                ", email=" + email +
-                ", cUsername=" + cUsername +
-                ", cPassword=" + cPassword +
-                ", addressLine1=" + addressLine1 +
-                ", addressLine2=" + addressLine2 +
-                ", city=" + city +
-                ", state=" + state +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dob='" + dob + '\'' +
+                ", email='" + email + '\'' +
+                ", cUsername='" + cUsername + '\'' +
+                ", cPassword='" + cPassword + '\'' +
+                ", addressLine1='" + addressLine1 + '\'' +
+                ", addressLine2='" + addressLine2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", zipcode=" + zipcode +
                 ", phoneNumber=" + phoneNumber +
                 '}';
