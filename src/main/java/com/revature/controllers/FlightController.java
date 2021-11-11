@@ -48,36 +48,41 @@ public class FlightController {
 
     //Additional Controllers below as needed
 
-    // Filters all flights to only return the flights in the future - based on flight status
-    @GetMapping("/futureFlights")
-    public List<Flight> getAllFutureFlights() {
+    // Filters all flights to only return the flights in the future for this particular vendor
+    @GetMapping("/futureFlights/{id}")
+    public List<Flight> getAllFutureFlights(@PathVariable("id") int id) {
         List<Flight> futureFlights = new ArrayList<Flight>();
         List<Flight> allFlights = getAllFlights();
 
         for(Flight flight : allFlights) {
             if (!flight.getStatus().equalsIgnoreCase("Complete") && !flight.getStatus().equalsIgnoreCase("Cancelled")) {
-                futureFlights.add(flight);
+                if(flight.getVendor().getVendor_id() == id){
+                    futureFlights.add(flight);
+                }
+
             }
         }
 
         return futureFlights;
-
     }
 
-    // Filters all flights to only return the flights in the past - based on flight status
-    @GetMapping("/pastFlights")
-    public List<Flight> getAllPastFlights() {
+    // Filters all flights to only return the flights in the past for this particular vendor
+    @GetMapping("/pastFlights/{id}")
+    public List<Flight> getAllPastFlights(@PathVariable("id") int id) {
         List<Flight> pastFlights = new ArrayList<Flight>();
         List<Flight> allFlights = getAllFlights();
 
         for(Flight flight : allFlights) {
             if (flight.getStatus().equalsIgnoreCase("Complete") || flight.getStatus().equalsIgnoreCase("Cancelled")) {
-                pastFlights.add(flight);
+                if(flight.getVendor().getVendor_id() == id) {
+                    pastFlights.add(flight);
+                }
             }
         }
-        System.out.println(pastFlights);
+
         return pastFlights;
     }
+
 
 }
 
