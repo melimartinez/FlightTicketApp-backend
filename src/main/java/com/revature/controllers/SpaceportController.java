@@ -1,12 +1,13 @@
 package com.revature.controllers;
 
-import com.revature.models.Spaceport;
+import com.revature.models.Spaceport; 
 import com.revature.services.SpaceportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class SpaceportController {
 
@@ -14,7 +15,7 @@ public class SpaceportController {
     SpaceportService sps;
 
     // CRUD Controllers
-    @PostMapping(value = "/spaceports", consumes = "application/json")
+    @PostMapping(value = "/spaceports", consumes = "application/json", produces = "application/json")
     public Spaceport addSpaceport(@RequestBody Spaceport sp) {
         return sps.addSpaceport(sp);
     }
@@ -31,7 +32,7 @@ public class SpaceportController {
 
     @PutMapping("/spaceports/{id}")
     public Spaceport updateSpaceport(@PathVariable("id") String id, @RequestBody Spaceport change) {
-        change.setSpID(Integer.parseInt(id));
+        change.setSpId(Integer.parseInt(id));
         return sps.updateSpaceport(change);
     }
 

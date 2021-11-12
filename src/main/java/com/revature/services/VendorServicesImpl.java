@@ -1,6 +1,6 @@
 package com.revature.services;
 
-import com.revature.models.Vendor;
+import com.revature.models.Vendor; 
 import com.revature.repositories.VendorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,10 @@
 package com.revature.repositories;
 
 import com.revature.models.Flight;
+import com.revature.util.FindFlights;
+
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +14,6 @@ public interface FlightRepo extends CrudRepository<Flight, Integer> {
     //More will go here if needed
 //    List<Flight> findByDepartureDateTime(long departureDateTime);
 //    List<Flight> findByArrivalDateTime(long arrivalDateTime);
-
+ 
 
 }

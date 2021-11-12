@@ -35,3 +35,11 @@ build/
 # added
 mvnw
 mvnw.cmd
+<<<<<<< Updated upstream
+src/main/java/com/revature/app/Project2BackEndApplication.java
+src/main/java/com/revature/controllers/CustomerController.java
+src/main/java/com/revature/models/Customer.java
+src/main/java/com/revature/repositories/CustomerRepo.java
+=======
+pom.xml
+>>>>>>> Stashed changes

@@ -1,19 +1,20 @@
 package com.revature.controllers;
 
-import com.revature.models.Spaceship;
+import com.revature.models.Spaceship; 
 import com.revature.services.SpaceshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class SpaceshipController {
 
     @Autowired
     SpaceshipService sss;
 
-    // CRUD Controllers
-    @PostMapping(value = "/spaceships", consumes = "application/json")
+    
+    @PostMapping(value = "/spaceships", consumes = "application/json", produces = "application/json")
     public Spaceship addSpaceship(@RequestBody Spaceship sp) {
         return sss.addSpaceship(sp);
     }
@@ -30,7 +31,7 @@ public class SpaceshipController {
 
     @PutMapping("/spaceships/{id}")
     public Spaceship updateSpaceship(@PathVariable("id") String id, @RequestBody Spaceship change) {
-        change.setSsID(Integer.parseInt(id));
+        change.setSsId(Integer.parseInt(id));
         return sss.updateSpaceship(change);
     }
 

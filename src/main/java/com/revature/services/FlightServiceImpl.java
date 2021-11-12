@@ -1,18 +1,18 @@
 package com.revature.services;
 
-import com.revature.models.Flight;
+import com.revature.models.Flight; 
 import com.revature.repositories.FlightRepo;
+import com.revature.util.FindFlights;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class FlightServiceImpl implements FlightService{
-
-    //Automatically maps an object to its instance found in Spring Container.
-    //If one exists.
-    //If more than one exists, need a @Qualifier
+	
     @Autowired //Field Injection
     FlightRepo fr;
 
@@ -49,5 +49,29 @@ public class FlightServiceImpl implements FlightService{
         }
     }
 
-    // Additional Services below as needed
+	@Override
+	public List<Flight> findByDestinationsAndDate(FindFlights findFlights) {
+		
+		long departureDate = findFlights.getDepartureDate();
+		long arrivalDate = findFlights.getArrivalDate();
+		String departureSpaceport = findFlights.getDepartureSpaceport();
+		String arrivalSpaceport = findFlights.getArrivalSpaceport();
+		List<Flight> filteredFlights = new ArrayList<Flight>();
+		try {
+			List<Flight> allFlights = this.getAllFlights();
+            for(Flight ob : allFlights) {
+            	if(ob.getDepartureDateTime()==departureDate 
+            			&& ob.getArrivalDateTime()==arrivalDate 
+            			&& ob.getDepartureSpaceport().getSpName().equals(departureSpaceport)
+            			&& ob.getArrivalSpaceport().getSpName().equals(arrivalSpaceport)) {
+            		filteredFlights.add(ob);
+            	}
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("No flights found for this destination and/or date");
+	}
+		return filteredFlights;
+	}	
+	
 }

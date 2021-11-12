@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,14 +19,18 @@ public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "t_id")
+	@Column(name = "t_id", updatable = false)
 	private int ticketId;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "c_id")
+	private Customer customerId;
 	
 	@Column(name = "passport_no")
 	private int passportNo;
 	
 	@Column(name = "expiry_date")
-	private Date expiryDate;
+	private String expiryDate;
 	
 	@Column(name = "checked_bag")
 	private int checkedBag;
@@ -39,7 +44,7 @@ public class Ticket {
 	@Column(name = "cabin_class")
 	private String cabinClass;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "f_id")
 	private Flight flight;
 	
@@ -47,12 +52,13 @@ public class Ticket {
 	public Ticket() {
 		super();
 	}
-	
 
-	public Ticket(int ticketId, int passportNo, Date expiryDate, int checkedBag, int carryOnBag, String meal,
-			String cabinClass, Flight flight) {
+
+	public Ticket(int ticketId, Customer customerId, int passportNo, String expiryDate, int checkedBag, int carryOnBag,
+			String meal, String cabinClass, Flight flight) {
 		super();
 		this.ticketId = ticketId;
+		this.customerId = customerId;
 		this.passportNo = passportNo;
 		this.expiryDate = expiryDate;
 		this.checkedBag = checkedBag;
@@ -61,10 +67,12 @@ public class Ticket {
 		this.cabinClass = cabinClass;
 		this.flight = flight;
 	}
-	
-	public Ticket(int passportNo, Date expiryDate, int checkedBag, int carryOnBag, String meal,
+
+
+	public Ticket(Customer customerId, int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal,
 			String cabinClass, Flight flight) {
 		super();
+		this.customerId = customerId;
 		this.passportNo = passportNo;
 		this.expiryDate = expiryDate;
 		this.checkedBag = checkedBag;
@@ -75,8 +83,10 @@ public class Ticket {
 	}
 
 
-	public Ticket(int passportNo, Date expiryDate, int checkedBag, int carryOnBag, String meal, String cabinClass) {
+	public Ticket(Customer customerId, int passportNo, String expiryDate, int checkedBag, int carryOnBag, String meal,
+			String cabinClass) {
 		super();
+		this.customerId = customerId;
 		this.passportNo = passportNo;
 		this.expiryDate = expiryDate;
 		this.checkedBag = checkedBag;
@@ -84,66 +94,92 @@ public class Ticket {
 		this.meal = meal;
 		this.cabinClass = cabinClass;
 	}
+
 
 	public int getTicketId() {
 		return ticketId;
 	}
 
+
 	public void setTicketId(int ticketId) {
 		this.ticketId = ticketId;
 	}
+
+
+	public Customer getCustomerId() {
+		return customerId;
+	}
+
+
+	public void setCustomerId(Customer customerId) {
+		this.customerId = customerId;
+	}
+
 
 	public int getPassportNo() {
 		return passportNo;
 	}
 
+
 	public void setPassportNo(int passportNo) {
 		this.passportNo = passportNo;
 	}
 
-	public Date getExpiryDate() {
+
+	public String getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
+
+	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
+
 
 	public int getCheckedBag() {
 		return checkedBag;
 	}
 
+
 	public void setCheckedBag(int checkedBag) {
 		this.checkedBag = checkedBag;
 	}
+
 
 	public int getCarryOnBag() {
 		return carryOnBag;
 	}
 
+
 	public void setCarryOnBag(int carryOnBag) {
 		this.carryOnBag = carryOnBag;
 	}
+
 
 	public String getMeal() {
 		return meal;
 	}
 
+
 	public void setMeal(String meal) {
 		this.meal = meal;
 	}
+
 
 	public String getCabinClass() {
 		return cabinClass;
 	}
 
+
 	public void setCabinClass(String cabinClass) {
 		this.cabinClass = cabinClass;
 	}
 
+
 	public Flight getFlight() {
 		return flight;
 	}
+
 
 	public void setFlight(Flight flight) {
 		this.flight = flight;
@@ -152,30 +188,9 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [ticketId=" + ticketId + ", passportNo=" + passportNo + ", expiryDate=" + expiryDate
-				+ ", checkedBag=" + checkedBag + ", carryOnBag=" + carryOnBag + ", meal=" + meal + ", cabinClass="
-				+ cabinClass + ", flight=" + flight + "]";
-	}
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(cabinClass, carryOnBag, checkedBag, expiryDate, meal, passportNo, ticketId);
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Ticket other = (Ticket) obj;
-		return Objects.equals(cabinClass, other.cabinClass) && carryOnBag == other.carryOnBag
-				&& checkedBag == other.checkedBag && Objects.equals(expiryDate, other.expiryDate)
-				&& Objects.equals(meal, other.meal) && passportNo == other.passportNo && ticketId == other.ticketId;
+		return "Ticket [ticketId=" + ticketId + ", customerId=" + customerId + ", passportNo=" + passportNo
+				+ ", expiryDate=" + expiryDate + ", checkedBag=" + checkedBag + ", carryOnBag=" + carryOnBag + ", meal="
+				+ meal + ", cabinClass=" + cabinClass + ", flight=" + flight + "]";
 	}
 	
 }

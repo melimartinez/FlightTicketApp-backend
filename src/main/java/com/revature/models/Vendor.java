@@ -14,23 +14,25 @@ public class Vendor {
     @Column(name = "company_name")
     private String companyName;
 
-    @Column(name = "v_username", nullable = false)
+    @Column(name = "v_username")
     private String vendorUsername;
 
     @Column(name = "v_password")
     private String vendorPassword;
 
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "phone_number", columnDefinition="numeric(10,0")
-    private double phoneNumber;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
+    @Column(name = "slogan")
     private String slogan;
 
     public Vendor() {
     }
 
-    public Vendor(int vendor_id, String companyName, String vendorUsername, String vendorPassword, String email, double phoneNumber, String slogan) {
+    public Vendor(int vendor_id, String companyName, String vendorUsername, String vendorPassword, String email, String phoneNumber, String slogan) {
         this.vendor_id = vendor_id;
         this.companyName = companyName;
         this.vendorUsername = vendorUsername;
@@ -80,11 +82,11 @@ public class Vendor {
         this.email = email;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

@@ -26,12 +26,12 @@ public class Flight {
     @Column(name = "tickets_available")
     private int ticketsAvailable;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "departure_spaceport_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "departure_spaceport")
     private Spaceport departureSpaceport;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "arrival_spaceport_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "arrival_spaceport")
     private Spaceport arrivalSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -154,3 +154,4 @@ public class Flight {
                 '}';
     }
 }
+
