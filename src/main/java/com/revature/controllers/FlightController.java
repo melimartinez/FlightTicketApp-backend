@@ -3,6 +3,8 @@ package com.revature.controllers;
 
 import com.revature.models.Flight;
 import com.revature.services.FlightService;
+import com.revature.util.FindFlights;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -83,6 +85,11 @@ public class FlightController {
         return pastFlights;
     }
 
+   //Filtered Flights to fetch all flights based on user's input (Dept/Arrival : Date/Time/Destinations)
+    @PostMapping(value = "/flight/findFlights", consumes = "application/json", produces = "application/json")
+    public List<Flight> findByDestinationsAndDate(@RequestBody FindFlights ff){
+    	return fs.findByDestinationsAndDate(ff);
+    }
 
 }
 
