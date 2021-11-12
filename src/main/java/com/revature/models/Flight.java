@@ -26,12 +26,15 @@ public class Flight {
     @Column(name = "tickets_available")
     private int ticketsAvailable;
 
+    @Column(name = "status")
+    private String status;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "departure_spaceport_id")
+    @JoinColumn(name = "departure_spaceport")
     private Spaceport departureSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "arrival_spaceport_id")
+    @JoinColumn(name = "arrival_spaceport")
     private Spaceport arrivalSpaceport;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -43,20 +46,23 @@ public class Flight {
     private Spaceship spaceship;
 
     public Flight() {
+
     }
 
-    public Flight(int id, long departureDateTime, long arrivalDateTime, double pricePerTicket, double vendorCost, int ticketsAvailable, Spaceport departureSpaceport, Spaceport arrivalSpaceport, Vendor vendor, Spaceship spaceship) {
+    public Flight(int id, long departureDateTime, long arrivalDateTime, double pricePerTicket, double vendorCost, int ticketsAvailable, String status, Spaceport departureSpaceport, Spaceport arrivalSpaceport, Vendor vendor, Spaceship spaceship) {
         this.id = id;
         this.departureDateTime = departureDateTime;
         this.arrivalDateTime = arrivalDateTime;
         this.pricePerTicket = pricePerTicket;
         this.vendorCost = vendorCost;
         this.ticketsAvailable = ticketsAvailable;
+        this.status = status;
         this.departureSpaceport = departureSpaceport;
         this.arrivalSpaceport = arrivalSpaceport;
         this.vendor = vendor;
         this.spaceship = spaceship;
     }
+
 
     public int getId() {
         return id;
@@ -106,6 +112,14 @@ public class Flight {
         this.ticketsAvailable = ticketsAvailable;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Spaceport getDepartureSpaceport() {
         return departureSpaceport;
     }
@@ -147,10 +161,11 @@ public class Flight {
                 ", pricePerTicket=" + pricePerTicket +
                 ", vendorCost=" + vendorCost +
                 ", ticketsAvailable=" + ticketsAvailable +
-                ", departureSpaceportId=" + departureSpaceport +
-                ", arrivalSpaceportId=" + arrivalSpaceport +
-                ", vendorId=" + vendor +
-                ", spaceshipId=" + spaceship +
+                ", status='" + status + '\'' +
+                ", departureSpaceport=" + departureSpaceport +
+                ", arrivalSpaceport=" + arrivalSpaceport +
+                ", vendor=" + vendor +
+                ", spaceship=" + spaceship +
                 '}';
     }
 }

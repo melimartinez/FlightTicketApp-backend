@@ -6,13 +6,16 @@ import com.revature.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class FlightController {
 
     @Autowired
     FlightService fs;
+
 
     //Crud Controllers
 
@@ -42,6 +45,44 @@ public class FlightController {
         return fs.deleteFlight(id);
     }
 
+
     //Additional Controllers below as needed
-    //
+
+    // Filters all flights to only return the flights in the future for this particular vendor
+    @GetMapping("/futureFlights/{id}")
+    public List<Flight> getAllFutureFlights(@PathVariable("id") int id) {
+        List<Flight> futureFlights = new ArrayList<Flight>();
+        List<Flight> allFlights = getAllFlights();
+
+        for(Flight flight : allFlights) {
+            if (!flight.getStatus().equalsIgnoreCase("Complete") && !flight.getStatus().equalsIgnoreCase("Cancelled")) {
+                if(flight.getVendor().getVendor_id() == id){
+                    futureFlights.add(flight);
+                }
+
+            }
+        }
+
+        return futureFlights;
+    }
+
+    // Filters all flights to only return the flights in the past for this particular vendor
+    @GetMapping("/pastFlights/{id}")
+    public List<Flight> getAllPastFlights(@PathVariable("id") int id) {
+        List<Flight> pastFlights = new ArrayList<Flight>();
+        List<Flight> allFlights = getAllFlights();
+
+        for(Flight flight : allFlights) {
+            if (flight.getStatus().equalsIgnoreCase("Complete") || flight.getStatus().equalsIgnoreCase("Cancelled")) {
+                if(flight.getVendor().getVendor_id() == id) {
+                    pastFlights.add(flight);
+                }
+            }
+        }
+
+        return pastFlights;
+    }
+
+
 }
+
