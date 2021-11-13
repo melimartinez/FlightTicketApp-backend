@@ -1,7 +1,6 @@
 package com.revature.servicesTest;
 
 import com.revature.models.Spaceport;
-import com.revature.models.Spaceship;
 import com.revature.repositories.SpaceportRepo;
 import com.revature.services.SpaceportService;
 import org.junit.jupiter.api.Assertions;
@@ -59,7 +58,7 @@ public class SpaceportServiceTests {
     }
 
     @Test
-    void getAllSpaceships(){
+    void getAllSpaceports(){
         List<Spaceport> spaceports = new ArrayList<>();
         spaceports.add(s);
         Mockito.when(sr.findAll()).thenReturn(spaceports);
