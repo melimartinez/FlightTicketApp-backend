@@ -1,7 +1,8 @@
-package com.revature.services;
+package com.revature.servicesTest;
 
 import com.revature.models.Vendor;
 import com.revature.repositories.VendorRepo;
+import com.revature.services.VendorServices;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

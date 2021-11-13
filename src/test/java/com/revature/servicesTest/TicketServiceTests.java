@@ -1,7 +1,8 @@
-package com.revature.services;
+package com.revature.servicesTest;
 
 import com.revature.models.*;
 import com.revature.repositories.TicketRepo;
+import com.revature.services.TicketService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

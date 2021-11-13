@@ -1,10 +1,11 @@
-package com.revature.services;
+package com.revature.servicesTest;
 
 import com.revature.models.Flight;
 import com.revature.models.Spaceport;
 import com.revature.models.Spaceship;
 import com.revature.models.Vendor;
 import com.revature.repositories.FlightRepo;
+import com.revature.services.FlightService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

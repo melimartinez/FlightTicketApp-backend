@@ -1,7 +1,8 @@
-package com.revature.services;
+package com.revature.servicesTest;
 
 import com.revature.models.Spaceship;
 import com.revature.repositories.SpaceshipRepo;
+import com.revature.services.SpaceshipService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -36,7 +37,7 @@ public class SpaceshipServiceTests {
     @Test
     void updateSpaceship(){
         Mockito.when(sr.save(s)).thenReturn(new Spaceship(1,"long haul", "buzz", 34));
-        s = ss.addSpaceship(s);
+        s = ss.updateSpaceship(s);
 
         Assertions.assertEquals(1, s.getSsID());
         Assertions.assertEquals(34, s.getNumSeats());

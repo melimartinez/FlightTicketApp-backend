@@ -1,8 +1,9 @@
-package com.revature.services;
+package com.revature.servicesTest;
 
 import com.revature.models.Spaceport;
 import com.revature.models.Spaceship;
 import com.revature.repositories.SpaceportRepo;
+import com.revature.services.SpaceportService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -37,7 +38,7 @@ public class SpaceportServiceTests {
     @Test
     void updateSpaceport(){
         Mockito.when(sr.save(s)).thenReturn(new Spaceport(1, "Trantor", "Moon"));
-        s = ss.addSpaceport(s);
+        s = ss.updateSpaceport(s);
 
         Assertions.assertEquals(1, s.getSpID());
         Assertions.assertEquals("Moon", s.getPlanet());
