@@ -2,21 +2,31 @@
 Feature: Vendor has Create,Read, Update, Delete operations for flights that work
 
   Scenario: The Create Flight functionality works
-    Given The Vendor is on the Home Page
-    When The Vendor clicks on 'Create Flight'
-    Then The Vendor should be prompted to fill out new flight form.
+    Given The Vendor is on the vendor-create-flights form Page
+    When The Vendor fills out the form by entering "<departureDateTime>", "<arrivalDateTime>", "<pricePerTicket>", "<flightCost>","<departureSpaceport>", "<arrivalSpaceport>", "<spaceship>" and clicks create
+    Then A new flight is created and user is sent to vendorHome page
 
-  Scenario: The 'View All Flights' functionality works
-    Given The Vendor is on the Home Page
-    When the Vendor clicks on 'View All Flights'
-    Then the homepage will be populated with all of their flights
+    Examples:
+      | departureDateTime   |  arrivalDateTime | pricePerTicket | flightCost | departureSpaceport | arrivalSpaceport | spaceship |
+      | 3774085200000       | 3776590800000    | 6000           | 100000     | Soren              | Mordecai         | Apocalypse |
 
-  Scenario: The edit flight functionality works
-    Given the Vendor is on the home page, populated with all flights
-    When the Vendor clicks on 'edit flight' for particular flight
-    Then populated flight form will open for editing
+  Scenario: The Vendor View Flight functionality works
+    Given The user is on the log in page
+    When the user logs in with valid credentials, "<vUsername>","<vPassword>"
+    Then the vendor will be taken to vendorHome page
+    When the Vendor clicks on view flight for a particular flight
+    Then The user will be taken to vendorflightview
 
-  Scenario: The Cancel Flight functionality works
-    Given The Vendor is on the home page, populated with all flights
-    When The Vendor clicks on 'Cancel Flight'
-    Then The flight will be cancelled and removed from all flights
+    Examples:
+      | vUsername     | vPassword   |
+      | me            | 1234567     |
+
+#  Scenario: The edit flight functionality works
+#    Given the Vendor is on the vendorflightview page
+#    When the Vendor clicks on 'edit flight' for particular flight and then clicks submit edit
+#    Then the flights edit will be persisted
+#
+#  Scenario: The Cancel Flight functionality works
+#    Given The Vendor is on the vendorflightview page
+#    When The Vendor clicks on 'Delete Flight'
+#    Then The flight will be deleted and removed from all flights and returned 
