@@ -1,10 +1,6 @@
-Feature: Login page works
+
 
   # As a Vendor, I can login to manage and view flights
-  Scenario: Vendor can log in
-    Given The Vendor is on the log in page
-    When The Vendor enters their correct username and password
-    Then The vendor will be on the landing page
 
 Feature: Customer interacting with their ticket
 

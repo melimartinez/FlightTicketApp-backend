@@ -15,7 +15,3 @@ Feature: Home page works
     When The Customer clicks Get Past Flights
     Then The Customer should see their past flights
 
-  Scenario: Login for Customer works
-    Given Customer is on the login page
-    When The Customer logs in
-    Then The Customer should see the home page

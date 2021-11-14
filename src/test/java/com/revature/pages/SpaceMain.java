@@ -18,6 +18,17 @@ public class SpaceMain {
     @FindBy(id = "")
     public WebElement addDest;
 
+	@FindBy(id = "userInput")
+	public WebElement usernameInput;
+	@FindBy (id = "passwordInput")
+	public WebElement passwordInput;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-login/div/div[3]")
+	public WebElement loginButton;
+	@FindBy(id = "departureSpaceport")
+	public WebElement headerCustomerHome;
+
+
+
 	
 	public SpaceMain(WebDriver driver) {
 		this.driver = driver;
