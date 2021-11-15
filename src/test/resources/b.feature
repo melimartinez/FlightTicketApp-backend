@@ -1,9 +1,9 @@
 Feature: Register page works
 
   Scenario: Guest can register
-    Given The Guest is on the homepage
-    When The Guest clicks on book
-    Then The Guest will be on Register/Login page
+    Given Guest is on the homepage
+    When Guest clicks on book
+    Then Guest will be on Login page
 
 Feature: Guest features
   Scenario: Guest can view all flights
