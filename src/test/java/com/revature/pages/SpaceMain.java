@@ -106,7 +106,7 @@ public class SpaceMain {
 	public WebElement dobInput;
 	@FindBy(id = "emailInput")
 	public WebElement emailInput;
-	@FindBy(id = "UsernameRInput")
+	@FindBy(id = "usernameRInput")
 	public WebElement UsernameRInput;
 	@FindBy(id = "passwordInput")
 	public WebElement cRegisterPasswordInput;

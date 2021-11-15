@@ -1,4 +1,5 @@
 package com.revature.steps;
+
 import com.revature.pages.SpaceMain;
 import com.revature.runner.SpaceRunner;
 import io.cucumber.java.en.Given;
@@ -64,7 +65,16 @@ public class CustRegStep {
 	@Then("^Customer clicks on Register button$")
 	public void customer_clicks_on_Register_button() throws InterruptedException  {
 	    // Write code here that turns the phrase above into concrete actions
+
 		spaceMain.cRegistrationButton.click();
+		spaceMain.cRegistrationButton.click();
+
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 	  
@@ -73,6 +83,12 @@ public class CustRegStep {
 	@Then("^Customer is on the Login Page$")
 	public void customer_is_on_the_Login_Page()  {
 	    // Write code here that turns the phrase above into concrete actions
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		String expected = "http://localhost:4200/login";
 		Assert.assertEquals(expected, driver.getCurrentUrl());
 	}
