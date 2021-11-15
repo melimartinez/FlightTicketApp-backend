@@ -31,6 +31,7 @@ public class LoginStepImpl {
         Thread.sleep(500);
 
 
+
     }
     @Then("The Customer should land on the Customer home page")
     public void the_customer_should_land_on_the_customer_home_page() {
