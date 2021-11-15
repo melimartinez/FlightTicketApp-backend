@@ -14,8 +14,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //This class is responsible for Running the tests by pulling in the feature files and step implementations
 //executing them appropriately
 
+// "src/test/resources/login.feature"
+
+// CUST_REG_1.feature
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources", glue = {"com.wiki.steps"})
+@CucumberOptions(features = "src/test/resources/CUST_BOOK_3.feature", glue = {"com.revature.steps"})
 public class SpaceRunner {
 	
 	public static WebDriver driver; 
@@ -23,7 +26,7 @@ public class SpaceRunner {
 	
 	@BeforeClass
 	public static void setUp() {
-		String path = "C:/Users/mandm/OneDrive/Desktop/chromedriver.exe";
+		String path = "C:/Users/mandm/OneDrive/Desktop/Selenium/chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", path);
 		
 		driver = new ChromeDriver();

@@ -31,6 +31,9 @@ public class SpaceMain {
 	    
 	    @FindBy(id = "filtered")
 	    public WebElement filtered;
+
+		@FindBy(name = "book")
+		public WebElement book2;
 	    
 	    
 	    //========================================Ticket Form Elements=================================

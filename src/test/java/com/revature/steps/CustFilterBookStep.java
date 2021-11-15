@@ -13,7 +13,7 @@ import junit.framework.Assert;
 
 public class CustFilterBookStep {
 	
-	public static SpaceMain spacePage = SpaceRunner.spaceMain;
+	public static SpaceMain spaceMain = SpaceRunner.spaceMain;
     public static WebDriver driver = SpaceRunner.driver;
 	
 	@Given("^Customer is on customer home page$")
@@ -30,10 +30,10 @@ public class CustFilterBookStep {
 	
 	@When("^Customer fill in required information to filter flights$")
 	public void customer_fill_in_required_information_to_filter_flights()  {
-		spacePage.departureSpaceport.sendKeys("Titania");
-		spacePage.arrivalSpaceport.sendKeys("Lethe");
-		spacePage.departureDate.sendKeys("1");
-		spacePage.arrivalDate.sendKeys("31");
+		spaceMain.departureSpaceport.sendKeys("Titania");
+		spaceMain.arrivalSpaceport.sendKeys("Lethe");
+		spaceMain.departureDate.sendKeys("1636560274");
+		spaceMain.arrivalDate.sendKeys("1636760274");
 	    try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -49,7 +49,7 @@ public class CustFilterBookStep {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-	    spacePage.search.click();
+	    spaceMain.search.click();
 	    
 	}
 	
@@ -61,7 +61,7 @@ public class CustFilterBookStep {
 	           e.printStackTrace();
 	       }
 		   String filterExpected = "Your Filtered Flights";
-		   String filterActual = spacePage.filtered.getText();
+		   String filterActual = spaceMain.filtered.getText();
 		   System.out.println(filterActual);
 		   Assert.assertEquals(filterExpected, filterActual);
 		   
@@ -75,7 +75,7 @@ public class CustFilterBookStep {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-	    spacePage.book1.click();
+	    spaceMain.book1.click();
 	    
 	}
 	
@@ -88,7 +88,7 @@ public class CustFilterBookStep {
 	           e.printStackTrace();
 	       }
 		   String headingExpected = "Book Your Ticket";
-		   String headingActual = spacePage.headingBook.getText();
+		   String headingActual = spaceMain.headingBook.getText();
 		   Assert.assertEquals(headingExpected, headingActual);
 		   
 	   
@@ -101,17 +101,17 @@ public class CustFilterBookStep {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-		spacePage.passportNo.sendKeys("3456783");
-		Select meal = new Select(spacePage.meals);
+		spaceMain.passportNo.sendKeys("3456783");
+		Select meal = new Select(spaceMain.meals);
 		meal.getOptions().get(1).click();
 		
-		Select cabin = new Select(spacePage.cabinClass);
+		Select cabin = new Select(spaceMain.cabinClass);
 		cabin.getOptions().get(1).click();
 
-		spacePage.expiryDate.sendKeys("3-3-2023");
-		spacePage.noOfPassengers.sendKeys("1");
-		spacePage.checkedBag.sendKeys("1");
-		spacePage.carryOnBag.sendKeys("1");
+		spaceMain.expiryDate.sendKeys("3-3-2023");
+		spaceMain.noOfPassengers.sendKeys("1");
+		spaceMain.checkedBag.sendKeys("1");
+		spaceMain.carryOnBag.sendKeys("1");
 	    
 	   
 	}
@@ -124,8 +124,8 @@ public class CustFilterBookStep {
             e.printStackTrace();
         }
 		String buttonExpected = "Book Ticket";
-		   String buttonActual = spacePage.bookTicket.getText();
-	    spacePage.bookTicket.click();
+		   String buttonActual = spaceMain.bookTicket.getText();
+	    spaceMain.bookTicket.click();
 	   
 	}
 	
