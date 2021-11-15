@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //executing them appropriately
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources", glue = {"com.wiki.steps"})
+@CucumberOptions(features = "src/test/resources/CUST_REG_1.feature", glue = {"com.revature.steps"})
 public class SpaceRunner {
 	
 	public static WebDriver driver; 
@@ -23,7 +23,7 @@ public class SpaceRunner {
 	
 	@BeforeClass
 	public static void setUp() {
-		String path = "C:/Selenium/chromedriver.exe"; 
+		String path = "iCloud_Drive/Desktop/chromedriver.exe";
 		System.setProperty("webdriver.chrome.driver", path);
 		
 		driver = new ChromeDriver();
