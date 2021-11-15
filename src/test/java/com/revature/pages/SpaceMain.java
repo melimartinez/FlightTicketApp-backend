@@ -72,6 +72,26 @@ public class SpaceMain {
 	public WebElement loginButton;
 	@FindBy(id = "departureSpaceport")
 	public WebElement headerCustomerHome;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorhome/div[3]/div/table/tbody/tr[1]/div/button")
+	public WebElement viewFlightsButton;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[10]/button[1]")
+	public WebElement EditFlightButton;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[7]/select")
+	public WebElement selectDepartureSpacePort;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[7]/select/option[1]")
+	public WebElement departureSpacePortDrop;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[8]/select")
+	public WebElement selectArrivalSpacePort;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[8]/select/option[2]")
+	public WebElement arrivalSpacePortDrop;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[9]/select")
+	public WebElement vendorSpaceshipSelect;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[9]/select/option[1]")
+	public WebElement getVendorSpaceshipDrop;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[10]/button[1]")
+	public WebElement vendorSubmitEdit;
+	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorflightview/div[10]/button[2]")
+	public WebElement vendorDeleteFlight;
 
 	@FindBy(xpath = "/html/body/app-root/div/div/ul/li[2]")
 	public WebElement customerRegistration;
