@@ -2,7 +2,7 @@ package com.revature.steps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import com.revature.pages.SpacePage;
+import com.revature.pages.SpaceMain;
 import com.revature.runner.SpaceRunner;
 
 import io.cucumber.java.en.Given;
@@ -13,7 +13,7 @@ import junit.framework.Assert;
 
 public class CustFilterBookStep {
 	
-	public static SpacePage spacePage = SpaceRunner.SpacePage;
+	public static SpaceMain spacePage = SpaceRunner.spaceMain;
     public static WebDriver driver = SpaceRunner.driver;
 	
 	@Given("^Customer is on customer home page$")

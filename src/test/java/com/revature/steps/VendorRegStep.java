@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 public class VendorRegStep {
 
-    public static SpaceMain wikiMain = SpaceRunner.spaceMain;
+    public static SpaceMain spaceMain = SpaceRunner.spaceMain;
     public static WebDriver driver = SpaceRunner.driver;
 
     @Given("Guest is on the homepage")
@@ -21,7 +21,7 @@ public class VendorRegStep {
 
     @When("Guest clicks on book")
     public void guest_clicks_on_book() {
-        wikiMain.bookButton.click();
+        spaceMain.bookButton.click();
     }
 
     @Then("Guest will be on Login page")

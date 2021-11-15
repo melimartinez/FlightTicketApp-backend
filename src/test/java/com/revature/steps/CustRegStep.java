@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CustRegStep {
 
-	public static SpaceMain wikiMain = SpaceRunner.spaceMain;
+	public static SpaceMain spaceMain = SpaceRunner.spaceMain;
 	public static WebDriver driver = SpaceRunner.driver;
 
 
@@ -29,7 +29,7 @@ public class CustRegStep {
 	public void customer_clicks_on_Customer_Register_button(){
 	    // Write code here that turns the phrase above into concrete actions
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		wikiMain.customerRegistration.click();
+		spaceMain.customerRegistration.click();
 
 	}
 
@@ -45,26 +45,26 @@ public class CustRegStep {
 	public void customer_enters_valid_inputs_on_all_required_fields() {
 	    // Write code here that turns the phrase above into concrete actions
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		wikiMain.firstNameInput.sendKeys("Ellen");
-		wikiMain.lastNameInput.sendKeys("Ripley");
-		wikiMain.dobInput.sendKeys("01-07-2092");
-		wikiMain.emailInput.sendKeys("Newt@TheCompany.com");
-		wikiMain.UsernameRInput.sendKeys("Jonesy");
-		wikiMain.cRegisterPasswordInput.sendKeys("Here");
-		wikiMain.address1Input.sendKeys("123 Nostromo St.");
-		wikiMain.address2Input.sendKeys("I may be in hyper sleep");
-		wikiMain.cityInput.sendKeys("Hadley's Hope");
-		wikiMain.state1.click();
-		wikiMain.state1.sendKeys(Keys.DOWN);
-		wikiMain.state1.sendKeys(Keys.ENTER);
-		wikiMain.zipcodeInput.sendKeys("12345");
-		wikiMain.phoneInput.sendKeys("9999999999");
+		spaceMain.firstNameInput.sendKeys("Ellen");
+		spaceMain.lastNameInput.sendKeys("Ripley");
+		spaceMain.dobInput.sendKeys("01-07-2092");
+		spaceMain.emailInput.sendKeys("Newt@TheCompany.com");
+		spaceMain.UsernameRInput.sendKeys("Jonesy");
+		spaceMain.cRegisterPasswordInput.sendKeys("Here");
+		spaceMain.address1Input.sendKeys("123 Nostromo St.");
+		spaceMain.address2Input.sendKeys("I may be in hyper sleep");
+		spaceMain.cityInput.sendKeys("Hadley's Hope");
+		spaceMain.state1.click();
+		spaceMain.state1.sendKeys(Keys.DOWN);
+		spaceMain.state1.sendKeys(Keys.ENTER);
+		spaceMain.zipcodeInput.sendKeys("12345");
+		spaceMain.phoneInput.sendKeys("9999999999");
 	}
 
 	@Then("^Customer clicks on Register button$")
 	public void customer_clicks_on_Register_button() throws InterruptedException  {
 	    // Write code here that turns the phrase above into concrete actions
-		wikiMain.cRegistrationButton.click();
+		spaceMain.cRegistrationButton.click();
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 	  

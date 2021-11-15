@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginStepImpl {
 
-    public static SpaceMain wikiMain = SpaceRunner.spaceMain;
+    public static SpaceMain spaceMain = SpaceRunner.spaceMain;
     public static WebDriver driver = SpaceRunner.driver;
 
     @Given("The User is on the Login Page")
@@ -25,9 +25,9 @@ public class LoginStepImpl {
     public void the_customer_enters_a_correct_and_and_presses_login(String string, String string2) throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wikiMain.usernameInput.sendKeys(string);
-        wikiMain.passwordInput.sendKeys(string2);
-        wikiMain.loginButton.click();
+        spaceMain.usernameInput.sendKeys(string);
+        spaceMain.passwordInput.sendKeys(string2);
+        spaceMain.loginButton.click();
         Thread.sleep(500);
 
 
@@ -45,9 +45,9 @@ public class LoginStepImpl {
         // Write code here that turns the phrase above into concrete actions
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
-        wikiMain.usernameInput.sendKeys(string);
-        wikiMain.passwordInput.sendKeys(string2);
-        wikiMain.loginButton.click();
+        spaceMain.usernameInput.sendKeys(string);
+        spaceMain.passwordInput.sendKeys(string2);
+        spaceMain.loginButton.click();
         Thread.sleep(500);
 
 
