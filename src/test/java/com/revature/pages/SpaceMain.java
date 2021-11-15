@@ -129,11 +129,6 @@ public class SpaceMain {
 	public WebElement bookButton;
 
 
-
-
-
-
-
 	//Vendor create flights form elements
 	@FindBy(id = "departureDateTimeInput")
 	public WebElement departureDateTime;
@@ -163,6 +158,21 @@ public class SpaceMain {
 	@FindBy(xpath = "/html/body/app-root/div/div/app-vendorhome/div[3]/div/table/tbody/tr/div/button")
 	public WebElement viewFlightButton;
 
+	@FindBy(id = "createDestinationButton")
+	public WebElement createDestinationButton;
+
+	// Vendor Create Destination
+	@FindBy(id = "spNameInput")
+	public WebElement spName;
+
+	@FindBy(id = "planetInput")
+	public WebElement planet;
+
+	@FindBy(id = "submitDestination")
+	public WebElement submitDestinationButton;
+
+	@FindBy(id = "successfulDestination")
+	public WebElement successfulDestinationMessage;
 
 
 
