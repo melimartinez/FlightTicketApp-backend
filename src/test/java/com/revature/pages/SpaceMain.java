@@ -1,6 +1,6 @@
 package com.revature.pages;
 
-import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebDriver;  
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,15 +9,61 @@ public class SpaceMain {
 	
 	public WebDriver driver;
 	
-	@FindBy(css = "")
-	public WebElement bookedFlights;
+	//=====================================Customer Home Elements================================
 	
-	@FindBy(css = "")
-    	public WebElement revenue;
+//		@FindBy(id = "departureSpaceport")         ---- uncomment when running CUST_FILTERED_BOOK_4.feature
+//		public WebElement departureSpaceport;
+//		
+//		@FindBy(id = "arrivalSpaceport")           ---- uncomment when running CUST_FILTERED_BOOK_4.feature
+//	    public WebElement arrivalSpaceport;
 
-   	@FindBy(id = "")
-    	public WebElement addDest;
+	    @FindBy(id = "departureDate")
+	    public WebElement departureDate;
+	    
+	    @FindBy(id = "arrivalDate")
+	    public WebElement arrivalDate;
+	    
+	    @FindBy(id = "search")
+	    public WebElement search;
+	    
+	    @FindBy(id = "book1")
+	    public WebElement book1;
+	    
+	    @FindBy(id = "filtered")
+	    public WebElement filtered;
+	    
+	    
+	    //========================================Ticket Form Elements=================================
+	    
+	    @FindBy(id = "passportNo")
+		public WebElement passportNo;
+		
+		@FindBy(id = "meals")
+	    public WebElement meals;
 
+	    @FindBy(id = "cabinClass")
+	    public WebElement cabinClass;
+	    
+	    @FindBy(id = "expiryDate")
+	    public WebElement expiryDate;
+	    
+	    @FindBy(id = "noOfPassengers")
+	    public WebElement noOfPassengers;
+	    
+	    @FindBy(id = "checkedBag")
+	    public WebElement checkedBag;
+	    
+	    @FindBy(id = "carryOnBag")
+	    public WebElement carryOnBag;
+	    
+	    @FindBy(id = "bookTicket")
+	    public WebElement bookTicket;
+	    
+	    @FindBy(id = "headingBook")
+	    public WebElement headingBook;
+	
+	
+	//Login Elements
 	@FindBy(id = "userInput")
 	public WebElement usernameInput;
 	@FindBy (id = "passwordInput")
